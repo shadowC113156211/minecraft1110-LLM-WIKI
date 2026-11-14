@@ -1,0 +1,159 @@
+/* ===== Minecraft 風格 LLM Wiki 樣式（原創像素 UI） ===== */
+@font-face { font-family: "Cubic11"; src: url("cubic.woff2") format("woff2"); font-display: swap; }
+:root {
+  --ink: #f2f2f2; --shadow: #3f3f3f; --dark: #1d1d1d;
+  --gui: #c6c6c6; --gui-hi: #ffffff; --gui-lo: #555555; --gui-text: #3f3f3f;
+  --grass: #5d9b3a; --stone: #7f7f7f; --end: #9b6bd6; --mob: #d8483b; --item: #e8b830;
+  --early: #6aab44; --mid: #a7b0b8; --late: #b07ce8;
+  --link: #8ef0ff; --gold: #fcd34d; --xp: #80ff20;
+  --cursor: url("cursor_sword.png") 0 0, auto;
+  --cursor-hover: url("cursor_sword_hover.png") 0 0, pointer;
+}
+* { box-sizing: border-box; }
+html { cursor: var(--cursor); }
+a, button, summary, label, [role=button], .slot, input[type=checkbox] { cursor: var(--cursor-hover); }
+body {
+  margin: 0; color: var(--ink); font-family: "Cubic11", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+  font-size: 17px; line-height: 1.75; letter-spacing: .02em;
+  background: #2b2b2b url("tex_deep.png") repeat; background-size: 64px; image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+}
+body.t-early { background-image: url("tex_dirt.png"); }
+body.t-mid { background-image: url("tex_stone.png"); }
+body.t-late { background-image: url("tex_end.png"); }
+body.t-mob { background-image: url("tex_nether.png"); }
+body.t-item { background-image: url("tex_plank.png"); }
+body.t-home { background-image: url("tex_dirt.png"); }
+img, svg.px { image-rendering: pixelated; }
+.mc-text, h1, h2, h3 { text-shadow: 2px 2px 0 var(--shadow); font-weight: normal; }
+h1 { font-size: clamp(28px, 4.5vw, 46px); line-height: 1.25; margin: 0 0 8px; }
+h2 { font-size: 26px; margin: 34px 0 12px; color: #fff; }
+h3 { font-size: 20px; margin: 18px 0 8px; color: var(--gold); }
+p { margin: 8px 0; }
+strong { color: #ffe066; font-weight: normal; text-shadow: 1px 1px 0 #000; }
+a { color: var(--link); text-decoration: none; }
+a:hover { color: #fff; text-decoration: underline; }
+
+/* ── 頂部導覽（類似遊戲選單列） ── */
+.topbar { position: sticky; top: 0; z-index: 50; background: rgba(0,0,0,.82); border-bottom: 3px solid #000;
+  box-shadow: inset 0 -3px 0 #3a3a3a; }
+.topbar .in { max-width: 1240px; margin: 0 auto; padding: 8px 16px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.topbar .brand { display: flex; align-items: center; gap: 8px; color: #fff; margin-right: 10px; font-size: 18px; text-shadow: 2px 2px 0 #3f3f3f; }
+.topbar .brand:hover { text-decoration: none; }
+.navbtn { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; color: #e0e0e0; border: 2px solid #000;
+  background: #6f6f6f; box-shadow: inset 2px 2px 0 #a8a8a8, inset -2px -2px 0 #464646; text-shadow: 2px 2px 0 #3f3f3f; font-size: 15px; }
+.navbtn:hover { text-decoration: none; color: #ffffa0; background: #7b86c7; box-shadow: inset 2px 2px 0 #b8c2ff, inset -2px -2px 0 #3c4482; }
+.navbtn.on { background: #4b7a2f; box-shadow: inset 2px 2px 0 #7fc157, inset -2px -2px 0 #2c4a1b; color: #fff; }
+.search { margin-left: auto; display: flex; position: relative; }
+.search input { font-family: inherit; font-size: 15px; width: 210px; padding: 5px 9px; background: #000; color: #fff; border: 2px solid #a0a0a0; outline: none; }
+.search input:focus { border-color: #fff; }
+.search .res { position: absolute; top: 100%; right: 0; width: 320px; max-height: 60vh; overflow: auto; background: #100010f0; border: 2px solid #2d0a63; display: none; z-index: 60; }
+.search .res a { display: flex; gap: 8px; align-items: center; padding: 6px 10px; color: #fff; border-bottom: 1px solid #2a1a40; }
+.search .res a:hover { background: #2d0a63; text-decoration: none; }
+.search .res small { color: #aaa; margin-left: auto; }
+
+/* ── 版面 ── */
+.wrap { max-width: 1240px; margin: 0 auto; padding: 22px 16px 70px; }
+.crumb { font-size: 14px; color: #ddd; margin-bottom: 10px; text-shadow: 1px 1px 0 #000; }
+.crumb a { color: #ddd; }
+/* 深色面板（類似遊戲提示框） */
+.panel { background: rgba(16, 0, 16, .86); border: 3px solid #000; box-shadow: inset 0 0 0 2px #2d0a63, 0 6px 0 rgba(0,0,0,.35);
+  padding: 20px 24px; margin: 0 0 18px; }
+.panel.green { box-shadow: inset 0 0 0 2px #2f6b1a, 0 6px 0 rgba(0,0,0,.35); background: rgba(8, 20, 6, .88); }
+.panel.red { box-shadow: inset 0 0 0 2px #7a1c1c, 0 6px 0 rgba(0,0,0,.35); background: rgba(24, 4, 4, .88); }
+.panel.gold { box-shadow: inset 0 0 0 2px #8a6a10, 0 6px 0 rgba(0,0,0,.35); background: rgba(24, 18, 2, .88); }
+.panel.purple { box-shadow: inset 0 0 0 2px #5b2a96, 0 6px 0 rgba(0,0,0,.35); background: rgba(16, 4, 26, .9); }
+/* 淺灰 GUI 面板（類似背包介面） */
+.gui { background: var(--gui); color: var(--gui-text); border: 3px solid #000;
+  box-shadow: inset 3px 3px 0 var(--gui-hi), inset -3px -3px 0 var(--gui-lo); padding: 16px 18px; margin-bottom: 18px; text-shadow: none; }
+.gui h2, .gui h3 { color: var(--gui-text); text-shadow: none; margin-top: 4px; }
+.gui a { color: #1d4ed8; }
+.gui strong { color: #7a2e00; text-shadow: none; }
+.grid { display: grid; gap: 14px; }
+.g2 { grid-template-columns: repeat(2, 1fr); } .g3 { grid-template-columns: repeat(3, 1fr); } .g4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .g3, .g4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } .search input { width: 140px; } }
+
+/* ── 頁首區 ── */
+.hero { display: flex; gap: 22px; align-items: center; }
+.hero .big-icon { flex: none; width: 120px; height: 120px; display: grid; place-items: center; background: #8b8b8b;
+  border: 3px solid #000; box-shadow: inset 3px 3px 0 #fff, inset -3px -3px 0 #373737; }
+.hero .big-icon svg { width: 96px; height: 96px; }
+.tag { white-space: nowrap; flex: none; display: inline-block; padding: 1px 9px; margin: 2px 4px 2px 0; border: 2px solid #000; font-size: 14px; color: #fff; text-shadow: 1px 1px 0 #000; }
+.tag.k-被動 { background: #3f8f3a; } .tag.k-中立 { background: #c08a1c; } .tag.k-敵對 { background: #b8312a; } .tag.k-頭目 { background: #6c2bb5; }
+.tag.dim { background: #3a4a6a; } .tag.cat { background: #5a5a5a; }
+.tag.r-常見 { background: #6b6b6b; } .tag.r-普通 { background: #3f8f3a; } .tag.r-稀少 { background: #2f6fb8; } .tag.r-稀有 { background: #8a3ad0; } .tag.r-極稀有 { background: #c9821a; }
+.tag.s-early { background: #4b7a2f; } .tag.s-mid { background: #5d6670; } .tag.s-late { background: #6c2bb5; }
+.goal { border-left: 6px solid var(--xp); padding: 10px 16px; background: rgba(0,0,0,.55); margin: 12px 0; }
+
+/* ── 數值 ── */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin: 14px 0; }
+.stat { background: rgba(0,0,0,.6); border: 2px solid #000; box-shadow: inset 0 0 0 2px #333; padding: 8px 12px; }
+.stat .k { font-size: 13px; color: #aaa; } .stat .v { font-size: 18px; color: #fff; }
+.hearts { display: flex; flex-wrap: wrap; gap: 1px; align-items: center; max-width: 230px; }
+.stars { color: #ffd23f; letter-spacing: 2px; text-shadow: 1px 1px 0 #000; }
+.stars .off { color: #555; }
+.xp { color: var(--xp); text-shadow: 1px 1px 0 #1f3f00; }
+
+/* ── 物品格 / 卡片 ── */
+.slot { display: inline-grid; place-items: center; width: 52px; height: 52px; background: #8b8b8b; border: 0;
+  box-shadow: inset 3px 3px 0 #373737, inset -3px -3px 0 #fff; position: relative; vertical-align: middle; }
+.slot svg { width: 36px; height: 36px; }
+.slot .n { position: absolute; right: 3px; bottom: 0; color: #fff; font-size: 13px; text-shadow: 2px 2px 0 #3f3f3f; }
+.card { display: flex; gap: 12px; align-items: flex-start; padding: 12px; background: rgba(0,0,0,.66); border: 2px solid #000;
+  box-shadow: inset 0 0 0 2px #3a3a3a; color: #eee; transition: transform .08s; }
+a.card:hover { text-decoration: none; transform: translateY(-2px); box-shadow: inset 0 0 0 2px #fff; color: #fff; }
+.card .t { font-size: 18px; color: #fff; text-shadow: 2px 2px 0 #000; }
+.card .d { font-size: 14px; color: #c8c8c8; line-height: 1.5; }
+.avatar { flex: none; width: 56px; height: 56px; display: grid; place-items: center; font-size: 28px; color: #fff;
+  border: 3px solid #000; text-shadow: 2px 2px 0 rgba(0,0,0,.6); position: relative; }
+.avatar.big { width: 120px; height: 120px; font-size: 62px; }
+.av-被動 { background: linear-gradient(135deg, #6fbf4d 0 50%, #4f9a33 50% 100%); }
+.av-中立 { background: linear-gradient(135deg, #e0aa3a 0 50%, #b8841c 50% 100%); }
+.av-敵對 { background: linear-gradient(135deg, #d94b40 0 50%, #a8281f 50% 100%); }
+.av-頭目 { background: linear-gradient(135deg, #8a4fd8 0 50%, #5d26a6 50% 100%); }
+.avatar .dimdot { position: absolute; right: -4px; bottom: -4px; width: 18px; height: 18px; border: 2px solid #000; }
+.dd-主世界 { background: #5d9b3a; } .dd-下界 { background: #8b2020; } .dd-終界 { background: #dcdca0; } .dd-mix { background: linear-gradient(90deg, #5d9b3a 33%, #8b2020 33% 66%, #dcdca0 66%); }
+
+/* ── 表格 ── */
+table.mc { width: 100%; border-collapse: collapse; background: rgba(0,0,0,.55); }
+table.mc th, table.mc td { border: 2px solid #000; padding: 8px 10px; text-align: left; vertical-align: top; }
+table.mc th { background: #4a4a4a; color: #fff; font-weight: normal; text-shadow: 1px 1px 0 #000; }
+table.mc tr:nth-child(even) td { background: rgba(255,255,255,.04); }
+
+/* ── 關係卡（雙向說明） ── */
+.rel { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 10px 12px; background: rgba(0,0,0,.5); border: 2px solid #000; margin-bottom: 8px; }
+.rel .rk { font-size: 12px; color: #9ae6b4; }
+.rel .rt { font-size: 18px; }
+.rel p { margin: 2px 0; font-size: 15px; color: #ddd; }
+
+/* ── 勾選清單（遊戲進度用） ── */
+.check { list-style: none; padding: 0; margin: 0; }
+.check li { display: flex; gap: 10px; align-items: center; padding: 6px 8px; border-bottom: 1px dashed #444; }
+.check input { appearance: none; width: 22px; height: 22px; border: 2px solid #000; background: #8b8b8b; box-shadow: inset 2px 2px 0 #373737, inset -2px -2px 0 #fff; flex: none; }
+.check input:checked { background: #4b7a2f url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Cpath fill='%23fff' d='M1 4h1v1h1v1h1V5h1V4h1V3h1V2h1v1H7v1H6v1H5v1H4v1H3V6H2V5H1z'/%3E%3C/svg%3E") center/16px no-repeat; }
+.check input:checked + span { color: var(--xp); text-decoration: line-through; }
+
+/* ── 大按鈕（遊戲主選單） ── */
+.mcbtn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 18px; font-size: 20px; color: #e0e0e0;
+  background: #6f6f6f url("tex_stone.png"); background-size: 48px; border: 3px solid #000;
+  box-shadow: inset 3px 3px 0 rgba(255,255,255,.45), inset -3px -3px 0 rgba(0,0,0,.45); text-shadow: 2px 2px 0 #3f3f3f; }
+.mcbtn:hover { color: #ffffa0; text-decoration: none; outline: 3px solid #fff; outline-offset: -3px; }
+.mcbtn { flex-wrap: wrap; text-align: center; }
+.mcbtn small { display: block; flex-basis: 100%; font-size: 13px; color: #ddd; line-height: 1.3; }
+.picks { display: inline-flex; gap: 1px; vertical-align: middle; }
+.foot { margin-top: 40px; font-size: 13px; color: #ccc; text-shadow: 1px 1px 0 #000; }
+.src li { font-size: 14px; margin: 3px 0; word-break: break-all; }
+.round-tag { font-size: 12px; padding: 0 6px; border: 1px solid #666; color: #aaa; margin-right: 6px; }
+.slideref a { display: inline-block; margin: 3px 6px 3px 0; padding: 2px 10px; background: #2d0a63; border: 2px solid #000; color: #fff; font-size: 14px; }
+.backtoslide { position: fixed; right: 18px; bottom: 18px; z-index: 70; display: none; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 16px; }
+.filters button { font-family: inherit; font-size: 15px; padding: 4px 12px; color: #fff; background: #3a3a3a; border: 2px solid #000; box-shadow: inset 2px 2px 0 #666, inset -2px -2px 0 #222; }
+.filters button.on { background: #4b7a2f; box-shadow: inset 2px 2px 0 #7fc157, inset -2px -2px 0 #2c4a1b; }
+.ore { position: relative; height: 430px; margin: 10px 0 0 46px; border-left: 3px solid #fff; }
+.ore .yl { position: absolute; left: -48px; font-size: 13px; color: #ccc; transform: translateY(-50%); }
+.ore .yl::after { content: ""; position: absolute; left: 44px; top: 50%; width: 9999px; max-width: 1100px; border-top: 1px dashed rgba(255,255,255,.12); }
+.ore .bar { position: absolute; width: 74px; border: 2px solid #000; opacity: .9; }
+.ore .peak { position: absolute; left: -6px; right: -6px; height: 6px; background: #fff; border: 1px solid #000; transform: translateY(-50%); }
+.ore .lab { position: absolute; top: -26px; left: 50%; transform: translateX(-50%); font-size: 14px; white-space: nowrap; text-shadow: 1px 1px 0 #000; }
+@media print { .topbar, .backtoslide { display: none; } }

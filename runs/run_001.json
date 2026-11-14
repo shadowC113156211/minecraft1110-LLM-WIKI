@@ -1,0 +1,404 @@
+{
+ "run": 1,
+ "time": "2026-11-14 16:35:54",
+ "note": "第一次完整執行（初版資料）",
+ "ingest": {
+  "round1": 18,
+  "round2": 15
+ },
+ "wiki": {
+  "guides": 17,
+  "mobs": 29,
+  "items": 53,
+  "relations": 49,
+  "drop_links": 31,
+  "recipe_links": 42,
+  "slides": 43
+ },
+ "check": {
+  "errors": 0,
+  "warns": 53,
+  "by_code": {
+   "C4-單向連結": 52,
+   "C4-孤島": 1
+  },
+  "samples": [
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "arrow",
+    "msg": "箭 提到 弓，但 弓 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "blaze",
+    "msg": "烈焰使者 提到 釀造台，但 釀造台 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "bow",
+    "msg": "弓 提到 烈焰使者，但 烈焰使者 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "bow",
+    "msg": "弓 提到 骷髏，但 骷髏 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "brewing_stand",
+    "msg": "釀造台 提到 岩漿球，但 岩漿球 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "brewing_stand",
+    "msg": "釀造台 提到 地獄疙瘩，但 地獄疙瘩 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "brewing_stand",
+    "msg": "釀造台 提到 夜魅皮膜，但 夜魅皮膜 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "chicken",
+    "msg": "雞 提到 箭，但 箭 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "chicken",
+    "msg": "雞 提到 終界龍，但 終界龍 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "cow",
+    "msg": "牛 提到 書，但 書 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "cow",
+    "msg": "牛 提到 附魔台，但 附魔台 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "diamond",
+    "msg": "鑽石 提到 鐵製工具與盔甲，但 鐵製工具與盔甲 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "diamond",
+    "msg": "鑽石 提到 獄髓錠，但 獄髓錠 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "diamond",
+    "msg": "鑽石 提到 黑曜石，但 黑曜石 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "elytra",
+    "msg": "鞘翅 提到 終界龍，但 終界龍 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "enchanting_table",
+    "msg": "附魔台 提到 村民，但 村民 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "end_crystal",
+    "msg": "終界水晶 提到 箭，但 箭 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "ender_dragon",
+    "msg": "終界龍 提到 箭，但 箭 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "enderman",
+    "msg": "終界使者 提到 豬布林，但 豬布林 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "enderman",
+    "msg": "終界使者 提到 村民，但 村民 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "evoker",
+    "msg": "喚魔者 提到 終界龍，但 終界龍 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "fire_res",
+    "msg": "抗火藥水 提到 釀造台，但 釀造台 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "flint_and_steel",
+    "msg": "打火石 提到 地獄幽靈，但 地獄幽靈 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "furnace",
+    "msg": "熔爐 提到 金錠，但 金錠 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "furnace",
+    "msg": "熔爐 提到 鐵錠，但 鐵錠 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "ghast",
+    "msg": "地獄幽靈 提到 終界水晶，但 終界水晶 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "gold_ingot",
+    "msg": "金錠 提到 抗火藥水，但 抗火藥水 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "iron_gear",
+    "msg": "鐵製工具與盔甲 提到 工作台，但 工作台 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "iron_ingot",
+    "msg": "鐵錠 提到 鑽石，但 鑽石 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "log",
+    "msg": "原木 提到 綠寶石，但 綠寶石 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "log",
+    "msg": "原木 提到 木棒，但 木棒 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "log",
+    "msg": "原木 提到 火把，但 火把 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "magma_cube",
+    "msg": "岩漿立方怪 提到 抗火藥水，但 抗火藥水 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "magma_cube",
+    "msg": "岩漿立方怪 提到 豬布林，但 豬布林 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "netherite",
+    "msg": "獄髓錠 提到 鑽石裝備，但 鑽石裝備 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "netherite",
+    "msg": "獄髓錠 提到 獄髓升級鍛造模板，但 獄髓升級鍛造模板 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "netherite_template",
+    "msg": "獄髓升級鍛造模板 提到 鑽石裝備，但 鑽石裝備 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "phantom",
+    "msg": "夜魅 提到 鞘翅，但 鞘翅 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "phantom",
+    "msg": "夜魅 提到 緩降藥水，但 緩降藥水 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "pig",
+    "msg": "豬 提到 殭屍化豬布林，但 殭屍化豬布林 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "piglin",
+    "msg": "豬布林 提到 殭屍化豬布林，但 殭屍化豬布林 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "pillager",
+    "msg": "掠奪者 提到 喚魔者，但 喚魔者 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "pillager",
+    "msg": "掠奪者 提到 盾牌，但 盾牌 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "sheep",
+    "msg": "羊 提到 床，但 床 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "shulker",
+    "msg": "界伏蚌 提到 盾牌，但 盾牌 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "skeleton",
+    "msg": "骷髏 提到 苦力怕，但 苦力怕 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "slow_falling",
+    "msg": "緩降藥水 提到 釀造台，但 釀造台 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "spider",
+    "msg": "蜘蛛 提到 弓，但 弓 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "villager",
+    "msg": "村民 提到 鐵魔像，但 鐵魔像 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "wither_skeleton",
+    "msg": "凋零骷髏 提到 盾牌，但 盾牌 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "zombie",
+    "msg": "殭屍 提到 綠寶石，但 綠寶石 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-單向連結",
+    "where": "zombie",
+    "msg": "殭屍 提到 村民，但 村民 頁面沒有對應說明（將自動產生反向引用）"
+   },
+   {
+    "level": "warn",
+    "code": "C4-孤島",
+    "where": "silverfish",
+    "msg": "蠹魚 沒有連到任何物品"
+   }
+  ]
+ },
+ "generate": {
+  "pages": 107,
+  "wiki_pages": 104
+ },
+ "post_check": {
+  "broken_links": 12,
+  "samples": [
+   [
+    "process.html",
+    "#ar"
+   ],
+   [
+    "process.html",
+    "#ar"
+   ],
+   [
+    "process.html",
+    "#ar"
+   ],
+   [
+    "process.html",
+    "#ar"
+   ],
+   [
+    "process.html",
+    "#ag"
+   ],
+   [
+    "process.html",
+    "#ar"
+   ],
+   [
+    "process.html",
+    "#ag"
+   ],
+   [
+    "process.html",
+    "#ag"
+   ],
+   [
+    "process.html",
+    "#ae"
+   ],
+   [
+    "process.html",
+    "#ae"
+   ],
+   [
+    "process.html",
+    "#ae"
+   ],
+   [
+    "process.html",
+    "#ae"
+   ]
+  ]
+ },
+ "result": "POST-CHECK：12 個疑似斷鏈（全是 SVG 的 url(#id) 內部參照，屬檢查規則誤判；此紀錄原誤標為 OK，已於 run 2 修正記錄邏輯）"
+}
